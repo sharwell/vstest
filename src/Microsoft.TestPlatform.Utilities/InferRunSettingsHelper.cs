@@ -715,10 +715,12 @@ namespace Microsoft.VisualStudio.TestPlatform.Utilities
             {
                 return false;
             }
+#if !NETSTANDARD1_3
             if (targetPlatform == Architecture.X64 && !Environment.Is64BitOperatingSystem)
             {
                 return true;
             }
+#endif
             return sourcePlatform != targetPlatform;
         }
 
